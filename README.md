@@ -1,4 +1,4 @@
-# codewars_Java_Solutions
+# Codewars Java Solutions
 ## First Kata
 1) Create a function with two arguments that will return an array of the first n multiples of x.
 
