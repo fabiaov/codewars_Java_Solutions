@@ -38,3 +38,41 @@ public class Kata{
   }
 }
 ```
+
+
+# Counting Sheeps
+### Solution 1
+```java
+import java.util.Arrays;
+
+public class Counter {
+  public int countSheeps(Boolean[] arrayOfSheeps) {
+    // TODO May the force be with you
+    return Arrays.stream(arrayOfSheeps).filter(x -> x != null).filter(x -> x == true).toArray().length;
+  }
+}
+
+```
+### Solution 2
+```java
+import java.util.Arrays;
+import java.util.Collections;
+
+public class Counter {
+  public int countSheeps(Boolean[] arrayOfSheeps) {
+    return Collections.frequency(Arrays.asList(arrayOfSheeps), true);
+  }
+}
+
+```
+### Solution 3
+```java
+import java.util.*;
+public class Counter {
+  public int countSheeps(Boolean[] arrayOfSheeps) {
+     return (int)Arrays.stream(arrayOfSheeps)
+                 .filter(Objects::nonNull)
+                 .filter(Boolean::booleanValue).count();
+  }
+}
+```
