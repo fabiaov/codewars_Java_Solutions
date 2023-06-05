@@ -76,3 +76,38 @@ public class Counter {
   }
 }
 ```
+
+# Calculate BMI
+### Solution 1
+```java
+public class Calculate {
+  public static String bmi(double weight, double height) {
+     double bmi =weight/(height*height);
+    return bmi <= 18.5 ? "Underweight": bmi <=25.0 ? "Normal" : bmi<=30.0 ? "Overweight" : "Obese";
+    }
+    }
+
+```
+### Solution 2
+```java
+public class Calculate {
+  public static String bmi(double weight, double height) {
+	
+		double bmi = weight/(height*height);
+    
+    String gewicht = "";
+		
+		if (bmi <= 18.5) {
+			gewicht = "Underweight";
+		} else if (bmi <= 25.0) {
+			gewicht =  "Normal";
+		} else if (bmi <= 30.0) {
+			gewicht =  "Overweight";
+		} else if(bmi > 30) {
+			gewicht =  "Obese";
+		}
+    return gewicht; 
+	}
+}
+
+```
