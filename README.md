@@ -111,3 +111,48 @@ public class Calculate {
 }
 
 ```
+# Count of positives / sum of negatives
+Given an array of integers.
+
+ Return an array, where the first element is the count of positives numbers and the second element is sum of negative numbers.
+
+ If the input array is empty or null, return an empty array.
+
+ The passed array should NOT be changed. Read more here.
+
+ For example:
+
+ input int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15} 
+ return int[] {10, -65}.
+ 
+ ### Solution 1 Clever one
+```java
+import java.util.stream.*;
+
+public class Kata {
+
+  public static int[] countPositivesSumNegatives(int[] input) {
+    return input == null || input.length == 0 ? 
+      new int[0] : 
+      new int[] { (int)IntStream.of(input).filter(i->i>0).count(), IntStream.of(input).filter(i->i<0).sum() };
+  }
+}
+
+```
+### Solution 2 
+```java
+public class Kata
+{
+    public static int[] countPositivesSumNegatives(int[] input)
+    {
+       if (input == null || input.length == 0) return new int[] {};
+       int count = 0,sum = 0;
+       for (int i : input) {
+         if (i > 0) count ++;
+         if (i < 0) sum += i;
+       }
+       return new int[] {count,sum};
+    }
+}
+
+```
