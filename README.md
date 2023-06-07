@@ -156,3 +156,55 @@ public class Kata
 }
 
 ```
+
+# Abbreviate A Two Word Name
+Write a function to convert a name into initials. This kata strictly takes two words with one space in between them.
+
+The output should be two capital letters with a dot separating them
+
+Example
+Sam Harris => S.H
+
+Patrick Feeney => P.F
+
+### Solution 1
+```java
+public class AbbreviateTwoWords {
+
+  public static String abbrevName(String name) {
+    String[] names = name.split(" ");
+    return (names[0].charAt(0) + "." + names[1].charAt(0)).toUpperCase();
+  }
+}
+
+```
+
+### Solution 2
+```java
+public class AbbreviateTwoWords {
+
+  public static String abbrevName(String name) {
+    return name.toUpperCase().replaceAll("(.).*\\s(.).*", "$1.$2");
+  }
+  
+}
+
+```
+### Solution 3
+```java
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
+public class AbbreviateTwoWords {
+
+  public static String abbrevName(String name) {
+    return Arrays.stream(name.split(" "))
+                 .map(String::toUpperCase)
+                 .map(word -> word.substring(0, 1))
+                 .collect(Collectors.joining("."));
+               
+  }
+  
+}
+
+```
